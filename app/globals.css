@@ -1,0 +1,323 @@
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ===== Root Light Mode Variables ===== */
+:root {
+  --background: oklch(1 0 0); /* Pure white */
+  --foreground: oklch(0.35 0 0); /* Dark gray #475569 */
+  --card: oklch(0.97 0 0); /* Light gray #f1f5f9 */
+  --card-foreground: oklch(0.35 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.35 0 0);
+  --primary: oklch(0.45 0.15 160); /* Emerald-600 #059669 */
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.35 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.45 0 0);
+  --accent: oklch(0.55 0.15 160); /* Emerald-500 #10b981 */
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.9 0 0);
+  --input: oklch(0.97 0 0);
+  --ring: oklch(0.45 0.15 160 / 0.5);
+  --chart-1: oklch(0.45 0.15 160);
+  --chart-2: oklch(0.55 0.15 160);
+  --chart-3: oklch(0.65 0.18 85);
+  --chart-4: oklch(0.55 0.22 25);
+  --chart-5: oklch(0.5 0.15 160);
+  --radius: 0.5rem;
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.35 0 0);
+  --sidebar-primary: oklch(0.97 0 0);
+  --sidebar-primary-foreground: oklch(0.35 0 0);
+  --sidebar-accent: oklch(0.55 0.15 160);
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(0.9 0 0);
+  --sidebar-ring: oklch(0.45 0.15 160 / 0.5);
+}
+
+/* ===== Dark Mode Variables ===== */
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.55 0.15 160);
+  --primary-foreground: oklch(0.145 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.6 0.15 160);
+  --accent-foreground: oklch(0.145 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.55 0.15 160 / 0.5);
+  --chart-1: oklch(0.55 0.15 160);
+  --chart-2: oklch(0.6 0.15 160);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.55 0.15 160);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.55 0.15 160 / 0.5);
+}
+
+/* ===== Tailwind Theme Mapping ===== */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* ===== Fonts ===== */
+@layer base {
+  :root {
+    --font-open-sans: 'Open Sans', sans-serif;
+    --font-montserrat: 'Montserrat', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+    --font-poppins: 'Poppins', sans-serif;
+    --font-lora: 'Lora', serif;
+    --font-playfair: 'Playfair Display', serif;
+    --font-roboto: 'Roboto', sans-serif;
+    --font-source-sans: 'Source Sans Pro', sans-serif;
+  }
+
+  .font-sans {
+    font-family: var(--font-open-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+
+  .font-serif {
+    font-family: var(--font-montserrat), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+
+  .font-mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      "Liberation Mono", "Courier New", monospace;
+  }
+
+  /* Custom font classes for theme customizer */
+  .font-inter { font-family: var(--font-inter), sans-serif; }
+  .font-poppins { font-family: var(--font-poppins), sans-serif; }
+  .font-lora { font-family: var(--font-lora), serif; }
+  .font-playfair { font-family: var(--font-playfair), serif; }
+  .font-roboto { font-family: var(--font-roboto), sans-serif; }
+  .font-source-sans { font-family: var(--font-source-sans), sans-serif; }
+}
+
+/* ===== Base Styles ===== */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ===== Responsive Design Improvements ===== */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .resume-preview-container {
+    transform-origin: top center;
+  }
+}
+
+/* ===== Animation Keyframes ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* ===== Mobile First Responsive Design ===== */
+@media (max-width: 640px) {
+  .mobile-collapse {
+    flex-direction: column;
+  }
+  
+  .mobile-stack > * {
+    margin-bottom: 1rem;
+  }
+  
+  .mobile-stack > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* ===== Print Styles for PDF Export ===== */
+@media print {
+  @page {
+    margin: 0;
+    size: A4 portrait;
+  }
+  
+  body * {
+    visibility: hidden;
+  }
+  
+  #resume-preview,
+  #resume-preview * {
+    visibility: visible;
+  }
+  
+  #resume-preview {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+  }
+}
+
+
+/* Add to globals.css */
+@media print {
+  #resume-preview {
+    width: 794px !important;
+    height: 1123px !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+  
+  #resume-preview * {
+    visibility: visible !important;
+  }
+  
+  /* Ensure links are visible in print */
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.9em;
+    font-weight: normal;
+    color: #666;
+  }
+  
+  /* Hide unnecessary elements in print */
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Improve link visibility in preview */
+#resume-preview a {
+  color: inherit;
+  
+}
+
+#resume-preview a:hover {
+  opacity: 0.8;
+  text-decoration: underline !important;
+}
+
+/* pdf-styles.css */
+@media print {
+  .lucide-icon {
+    vertical-align: middle !important;
+    position: relative !important;
+    top: 0 !important;
+    transform: none !important;
+  }
+  
+  /* Ensure consistent icon positioning */
+  .flex.items-center {
+    align-items: center !important;
+  }
+  
+  /* Fix for icon alignment issues */
+  svg {
+    display: inline-block !important;
+    vertical-align: middle !important;
+  }
+}
+
+
